@@ -1,10 +1,11 @@
-import { Fragment } from "react"
+import TodoText from "../models/todos";
+import TodoItem from "./TodoItem";
 
-const Todos = () => {
+const Todos: React.FC<{items: TodoText[]}> = (props) => {
     return (
         <ul>
-            <li>Learn react</li>
-            <li>Learn typescript</li>
+            
+            {props.items.map(item => (<TodoItem key={item.id} text={item.text}/>))}
         </ul>
         );
 };
